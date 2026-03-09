@@ -147,7 +147,7 @@ Complete step-by-step instructions for deploying the Mazacoin blockchain explore
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://git.dashcaddy.net/sami/mazacoin-explorer.git
+git clone https://git.example.com/sami/mazacoin-explorer.git
 cd mazacoin-explorer
 ```
 
@@ -161,11 +161,11 @@ NODE_ENV=production
 PORT=3000
 
 # Mazacoin Node Connection
-MAZA_HOST=100.85.236.10
+MAZA_HOST=<MAZACOIN_NODE_IP>
 MAZA_USER=hello
 MAZA_CLI_PATH=E:\\coins\\MAZA\\daemon\\maza-cli.exe
 MAZA_DATADIR=E:\\coins\\MAZA
-SSH_KEY_PATH=/root/.ssh/krystie_to_sami_pc
+SSH_KEY_PATH=/root/.ssh/id_ed25519
 
 # API Configuration
 CACHE_TTL=60
@@ -592,7 +592,7 @@ docker exec mongo mongodump --out /backup
 ## Support
 
 For issues, questions, or contributions:
-- **Issues:** https://git.dashcaddy.net/sami/mazacoin-explorer/issues
+- **Issues:** https://git.example.com/sami/mazacoin-explorer/issues
 - **Docs:** See `README.md` and `TROUBLESHOOTING.md`
 - **Mazacoin Community:** https://mazacoin.org
 

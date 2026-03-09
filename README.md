@@ -2,7 +2,7 @@
 
 A full-featured blockchain explorer for Mazacoin (MAZA), featuring real-time block updates, transaction search, network statistics, and a live node map.
 
-🌐 **Live at:** https://maza.samiahmed7777.me
+🌐 **Live Demo:** https://maza.example.com
 
 ## Features
 
@@ -40,20 +40,20 @@ A full-featured blockchain explorer for Mazacoin (MAZA), featuring real-time blo
 
 ## Prerequisites
 
-1. **Mazacoin Node** running on `100.85.236.10` (Windows PC)
-   - Wallet path: `E:\coins\MAZA`
-   - CLI: `E:\coins\MAZA\daemon\maza-cli.exe`
-   - SSH access configured with key at `~/.ssh/krystie_to_sami_pc`
+1. **Mazacoin Node** running with RPC enabled
+   - Wallet path configured (e.g., `~/.maza` on Linux or `E:\coins\MAZA` on Windows)
+   - CLI: `maza-cli` (or `maza-cli.exe` on Windows)
+   - SSH access configured if node is on a remote machine
 
 2. **Docker** and **docker-compose** installed
 
-3. **DashCaddy** running on DNS1 (100.71.97.12)
+3. **Reverse proxy** (Caddy, Nginx, or similar) for TLS/SSL
 
 ## Quick Start
 
 ### 1. Start the Mazacoin Node
 
-On the Windows PC (100.85.236.10):
+On the Windows PC (<MAZACOIN_NODE_IP>):
 
 ```powershell
 # Option 1: GUI with RPC enabled
@@ -74,7 +74,7 @@ The deployment script will:
 - Build Docker images
 - Start frontend and backend containers
 - Configure Caddy reverse proxy
-- Make the explorer available at https://maza.samiahmed7777.me
+- Make the explorer available at https://maza.example.com
 
 ### 3. Manual Deployment (Alternative)
 
@@ -137,7 +137,7 @@ Create `backend/.env`:
 ```env
 NODE_ENV=production
 PORT=3000
-SSH_KEY_PATH=/root/.ssh/krystie_to_sami_pc
+SSH_KEY_PATH=/root/.ssh/id_ed25519
 ```
 
 ### Frontend Environment Variables
@@ -145,7 +145,7 @@ SSH_KEY_PATH=/root/.ssh/krystie_to_sami_pc
 Create `frontend/.env`:
 
 ```env
-REACT_APP_API_URL=https://maza.samiahmed7777.me
+REACT_APP_API_URL=https://maza.example.com
 ```
 
 ## Architecture
@@ -157,7 +157,7 @@ REACT_APP_API_URL=https://maza.samiahmed7777.me
          │ HTTPS
          ▼
 ┌─────────────────┐
-│  Caddy (DNS1)   │ ← DashCaddy managed
+│  Caddy (<PROXY_SERVER>)   │ ← DashCaddy managed
 │ :443 → :8080    │
 └────────┬────────┘
          │
@@ -171,8 +171,8 @@ REACT_APP_API_URL=https://maza.samiahmed7777.me
                                  ▼
                         ┌─────────────────┐
                         │  Mazacoin Node  │
-                        │  (sami-pc)      │
-                        │  100.85.236.10  │
+                        │  (<MAZACOIN_NODE>)      │
+                        │  <MAZACOIN_NODE_IP>  │
                         └─────────────────┘
 ```
 
@@ -212,14 +212,14 @@ docker-compose restart frontend
 
 ### Backend can't connect to Mazacoin node
 
-1. Check if Mazacoin is running on sami-pc:
+1. Check if Mazacoin is running on <MAZACOIN_NODE>:
 ```bash
-ssh -i ~/.ssh/krystie_to_sami_pc hello@100.85.236.10 "tasklist | findstr maza"
+ssh -i ~/.ssh/id_ed25519 hello@<MAZACOIN_NODE_IP> "tasklist | findstr maza"
 ```
 
 2. Test RPC connection:
 ```bash
-ssh -i ~/.ssh/krystie_to_sami_pc hello@100.85.236.10 "E:\coins\MAZA\daemon\maza-cli.exe getblockcount"
+ssh -i ~/.ssh/id_ed25519 hello@<MAZACOIN_NODE_IP> "E:\coins\MAZA\daemon\maza-cli.exe getblockcount"
 ```
 
 3. Check backend logs:
@@ -272,7 +272,7 @@ MIT License - See LICENSE file for details
 Built with ❤️ for the Mazacoin community
 
 - **Mazacoin:** https://mazacoin.org
-- **Explorer:** https://maza.samiahmed7777.me
+- **Explorer:** https://maza.example.com
 
 ---
 

@@ -3,8 +3,8 @@
 ## Project Overview
 Build a full-featured blockchain explorer for Mazacoin (similar to blockchain.com or blockchair.com).
 
-**Domain:** maza.samiahmed7777.me
-**Mazacoin Node:** Running on Windows PC at 100.85.236.10 (Tailscale), wallet at E:\coins\MAZA
+**Domain:** maza.example.com
+**Mazacoin Node:** Running on Windows PC at <MAZACOIN_NODE_IP> (Tailscale), wallet at E:\coins\MAZA
 
 ## Core Features
 
@@ -78,13 +78,13 @@ Build a full-featured blockchain explorer for Mazacoin (similar to blockchain.co
 
 ### Infrastructure
 - **Container:** Docker + docker-compose
-- **Deployment:** DashCaddy API (http://100.71.97.12:3001)
+- **Deployment:** DashCaddy API (http://<PROXY_SERVER_IP>:3001)
 - **Reverse Proxy:** Caddy (auto-configured via DashCaddy)
-- **Domain:** maza.samiahmed7777.me
+- **Domain:** maza.example.com
 
 ## Mazacoin Node Connection
 
-**Node Location:** Windows PC at 100.85.236.10 (SSH: hello@100.85.236.10, key at ~/.ssh/krystie_to_sami_pc)
+**Node Location:** Windows PC at <MAZACOIN_NODE_IP> (SSH: hello@<MAZACOIN_NODE_IP>, key at ~/.ssh/id_ed25519)
 **Wallet Path:** E:\coins\MAZA
 **CLI:** E:\coins\MAZA\daemon\maza-cli.exe
 
@@ -137,11 +137,11 @@ mazacoin-explorer/
 2. Push to registry or build on target
 3. Deploy via DashCaddy API:
    ```bash
-   curl -X POST http://100.71.97.12:3001/api/docker/deploy \
+   curl -X POST http://<PROXY_SERVER_IP>:3001/api/docker/deploy \
      -H "Content-Type: application/json" \
      -d '{
        "name": "mazacoin-explorer",
-       "domain": "maza.samiahmed7777.me",
+       "domain": "maza.example.com",
        "port": 3000,
        "env": {...}
      }'
@@ -178,11 +178,11 @@ Build this incrementally:
 - Live node map updates in real-time
 - Network stats are accurate
 - Fast load times (<2s for most pages)
-- Deployed and accessible at maza.samiahmed7777.me
+- Deployed and accessible at maza.example.com
 
 ---
 
 **Note:** User (Sami) has Mazacoin wallet but node is not currently running. You may need to coordinate with Krystie (me) to start the node or handle RPC connection setup.
 
 When completely finished, run this command to notify me:
-openclaw system event --text "Done: Mazacoin explorer built and ready for deployment to maza.samiahmed7777.me" --mode now
+openclaw system event --text "Done: Mazacoin explorer built and ready for deployment to maza.example.com" --mode now

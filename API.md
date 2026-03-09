@@ -2,7 +2,7 @@
 
 Complete API reference for the Mazacoin blockchain explorer backend.
 
-**Base URL:** `https://maza.samiahmed7777.me/api`  
+**Base URL:** `https://maza.example.com/api`  
 **Protocol:** REST + WebSocket  
 **Format:** JSON  
 **Authentication:** None (public read-only API)
@@ -58,7 +58,7 @@ Get the current blockchain height.
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/blockcount
+curl https://maza.example.com/api/blockcount
 ```
 
 ---
@@ -99,10 +99,10 @@ Get detailed information about a specific block.
 **Example:**
 ```bash
 # By height
-curl https://maza.samiahmed7777.me/api/block/4128000
+curl https://maza.example.com/api/block/4128000
 
 # By hash
-curl https://maza.samiahmed7777.me/api/block/0000000000000a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5
+curl https://maza.example.com/api/block/0000000000000a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5
 ```
 
 ---
@@ -147,7 +147,7 @@ Get the latest N blocks with summary information.
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/blocks/latest/20
+curl https://maza.example.com/api/blocks/latest/20
 ```
 
 ---
@@ -215,7 +215,7 @@ Get detailed information about a transaction.
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/tx/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2
+curl https://maza.example.com/api/tx/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2
 ```
 
 ---
@@ -245,7 +245,7 @@ Get balance for a specific address (from rich list cache).
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/address/MCU8e7DdJ8D2on5fBQfb4jTn2qX4DGiikw/balance
+curl https://maza.example.com/api/address/MCU8e7DdJ8D2on5fBQfb4jTn2qX4DGiikw/balance
 ```
 
 ---
@@ -273,7 +273,7 @@ Get current network statistics.
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/stats
+curl https://maza.example.com/api/stats
 ```
 
 ---
@@ -301,7 +301,7 @@ Get list of connected peer nodes (for node map).
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/peers
+curl https://maza.example.com/api/peers
 ```
 
 ---
@@ -347,7 +347,7 @@ Get geolocated peer nodes for the node map (includes geolocation data).
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/nodes
+curl https://maza.example.com/api/nodes
 ```
 
 ---
@@ -380,7 +380,7 @@ Get current MAZA price in BTC, LTC, and ETH.
 
 **Example:**
 ```bash
-curl https://maza.samiahmed7777.me/api/price
+curl https://maza.example.com/api/price
 ```
 
 ---
@@ -443,13 +443,13 @@ Universal search for blocks, transactions, or addresses.
 **Example:**
 ```bash
 # Search by block height
-curl https://maza.samiahmed7777.me/api/search/4128000
+curl https://maza.example.com/api/search/4128000
 
 # Search by hash
-curl https://maza.samiahmed7777.me/api/search/0000000000000a1b2c3d...
+curl https://maza.example.com/api/search/0000000000000a1b2c3d...
 
 # Search by address
-curl https://maza.samiahmed7777.me/api/search/MCU8e7DdJ8D2on5fBQfb4jTn2qX4DGiikw
+curl https://maza.example.com/api/search/MCU8e7DdJ8D2on5fBQfb4jTn2qX4DGiikw
 ```
 
 ---
@@ -498,10 +498,10 @@ Get top addresses by balance.
 **Example:**
 ```bash
 # Get top 10
-curl https://maza.samiahmed7777.me/api/richlist/10
+curl https://maza.example.com/api/richlist/10
 
 # Get top 100 (default)
-curl https://maza.samiahmed7777.me/api/richlist
+curl https://maza.example.com/api/richlist
 ```
 
 ---
@@ -514,7 +514,7 @@ The explorer uses Socket.IO for real-time updates.
 ```javascript
 import io from 'socket.io-client';
 
-const socket = io('https://maza.samiahmed7777.me');
+const socket = io('https://maza.example.com');
 
 socket.on('connect', () => {
   console.log('Connected to explorer');
@@ -694,7 +694,7 @@ socket.on('disconnect', () => {
 ## Support
 
 For API issues or questions:
-- **GitHub Issues:** https://git.dashcaddy.net/sami/mazacoin-explorer/issues
+- **GitHub Issues:** https://git.example.com/yourusername/mazacoin-explorer/issues
 - **Documentation:** See `README.md` and `INSTALL.md`
 
 ---
