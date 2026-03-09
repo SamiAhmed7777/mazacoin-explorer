@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: mazacoin-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - mazacoin-net
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - SSH_KEY_PATH=/root/.ssh/krystie_to_sami_pc
+    volumes:
+      - /root/.ssh:/root/.ssh:ro
+      - backend-logs:/app/logs
+      - ./backend/data:/app/data
+
+  frontend:
+    build: ./frontend
+    container_name: mazacoin-frontend
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - mazacoin-net
+
+volumes:
+  backend-logs:
+
+networks:
+  mazacoin-net:
+    driver: bridge
